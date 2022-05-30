@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 
 class Timer extends React.Component {
   constructor(props) {
@@ -7,12 +6,10 @@ class Timer extends React.Component {
 
     this.state = {
       date: new Date().toLocaleTimeString(),
-      sec: 0
+      sec: props.value
     }
     console.log(this.state.date);
   }
-
-  
 
   componentDidMount() {
     setInterval(() => {
@@ -26,28 +23,25 @@ class Timer extends React.Component {
     clearInterval(this.addSec());
     clearInterval(this.tick());
     console.log("Unmounting");
-    
   }
 
   addSec = () => {
-    this.setState({sec: this.state.sec + 1})
+    this.setState({ sec: this.state.sec + 1 })
   }
 
   tick = () => {
-    this.setState({date: new Date().toLocaleTimeString()});
+    this.setState({ date: new Date().toLocaleTimeString() });
   }
 
-  render () {
-    const {date, sec} = this.state;
-    
+  render() {
+    const { date, sec } = this.state;
+
     return (
       <React.Fragment>
-        <div className="App">
-        <p>{date}</p>
-         <p>{sec}</p>
-        </div>
-      </React.Fragment>  
-      );
+        <p>Timer class component: {date}</p>
+        <p>{sec}</p>
+      </React.Fragment>
+    );
   }
 }
 
