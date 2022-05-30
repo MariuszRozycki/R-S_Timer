@@ -12,9 +12,11 @@ function TimerFunction(props) {
   });
 
   return (
-    <div className="App">
+    <React.Fragment>
       <p>Timer function component: {value}</p>
-    </div>
+    </React.Fragment>
+
+
   )
 }
 
